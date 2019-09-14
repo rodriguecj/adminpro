@@ -12,7 +12,7 @@ import { RegisterComponent } from './login/register.component';
 
 
 const routes: Routes = [
-  { 
+ /*  { 
     path: '',
     component: PagesComponent,
     children: [
@@ -21,7 +21,7 @@ const routes: Routes = [
       { path: 'graficas1', component: Grafias1Component },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
     ]
-  },
+  }, */
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', component: NopagefoundComponent }
