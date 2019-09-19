@@ -9,10 +9,11 @@ import { ProgressComponent } from './pages/progress/progress.component';
 import { Grafias1Component } from './pages/grafias1/grafias1.component';
 import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
 import { RegisterComponent } from './login/register.component';
+import { PAGES_ROUTES } from './pages/pages.routes';
 
 
 const routes: Routes = [
- /*  { 
+    /* { 
     path: '',
     component: PagesComponent,
     children: [
@@ -28,7 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [PAGES_ROUTES, RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
