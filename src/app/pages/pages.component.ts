@@ -8,10 +8,14 @@ declare function init_pluging()
 })
 export class PagesComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    /* console.log('Se activa el pluging desde el constructor'); */
+    init_pluging()
+  }
 
   ngOnInit() {
-    init_pluging()
+   /*  init_pluging() */
+    /* console.log('Se activaron los pluging'); */
   }
 
 }
