@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
 import { ChartsModule } from 'ng2-charts';
+import { PipesModule } from '../pipes/pipes.module';
 
 /* Router pages field */
 import { PAGES_ROUTES } from './pages.routes';
@@ -19,6 +20,7 @@ import { ComponentsModule } from '../components/components.module';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({   
@@ -31,6 +33,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     AccountSettingsComponent,
     PromesasComponent,
     RxjsComponent,
+    ProfileComponent,
     /* GraficoDonaComponent */
   ],
   imports: [
@@ -39,7 +42,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     PAGES_ROUTES,
     FormsModule,
     ChartsModule,
-    ComponentsModule
+    ComponentsModule,
+    PipesModule
   ], 
   exports: [
     PagesComponent,

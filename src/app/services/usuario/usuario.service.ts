@@ -5,6 +5,7 @@ import { URL_SERVICIOS } from '../../config/config';
 import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { SubirArchivoService } from '../subirArchivo/subir-archivo.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class UsuarioService {
 
   constructor(
     public http: HttpClient,
-    private router: Router
+    private router: Router,
+    public _subirArchivoService: SubirArchivoService
   ) { 
     this.cargarStorage();
   }
@@ -117,6 +119,58 @@ export class UsuarioService {
               )
 
             )
+
+  }
+
+  actualizarUsuario( usuario: Usuarios ){
+    
+    let url = URL_SERVICIOS + '/usuario/' + usuario._id;
+    //Hay que mandar el token
+    url += '?token=' + this.token;
+
+    /* console.log(url); */
+
+    return this.http.put( url, usuario )
+                .pipe(
+                  map( (res: any)=>{
+                    
+                    let usuarioDB: Usuarios = res.usuario;
+
+                    this.guardarStorage( usuarioDB._id, this.token, usuarioDB )
+                    Swal.fire({
+                      title: 'Usuario Actualizado!',
+                      text: res.nombre,
+                      icon: 'success',
+                      confirmButtonText: 'Cool'
+                    })
+                    return true
+                  } )
+                )
+
+
+  }
+
+  cambiarImagen( archivo: File, id: string ){
+      //llamamos al servicio que cambia la img
+    this._subirArchivoService.subirArchivo( archivo, 'usuarios', id )
+        .then( (res: any)=>{
+          //Recibimos la respuesta y almacenamos la img en el objeto usuario
+          this.usuario.img = res.usuario.img;
+
+          //Enviamos una notificacion al usuario de que se guardo la img
+          Swal.fire({
+            title: 'Imagen Actualizado!',
+            text: res.usuario.nombre,
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+          //Actualizar localStorage
+          this.guardarStorage( id, this.token, this.usuario )
+          console.log( res );
+        } )
+        .catch( res=>{
+          console.log( res );
+        } )
 
   }
 
