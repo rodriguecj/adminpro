@@ -18,10 +18,13 @@ import { RegisterComponent } from './login/register.component';
 import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
 
 import { PagesModule } from './pages/pages.module';
+import { PagesComponent } from './pages/pages.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PagesComponent,
     NopagefoundComponent,
 
     LoginComponent,
@@ -30,10 +33,11 @@ import { PagesModule } from './pages/pages.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PagesModule,
+    /* PagesModule, */
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

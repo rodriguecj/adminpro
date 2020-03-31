@@ -10,9 +10,9 @@ import { PAGES_ROUTES } from './pages.routes';
 import { SharedModule } from '../shared/shared.module';
 
 import { PagesComponent } from './pages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { Grafias1Component } from './grafias1/grafias1.component';
 import { ProgressComponent } from './progress/progress.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
@@ -31,7 +31,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 
 @NgModule({   
   declarations: [
-    PagesComponent,
+    /* PagesComponent, */
     DashboardComponent,
     ProgressComponent,
     Grafias1Component,
@@ -41,7 +41,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
     RxjsComponent,
     ProfileComponent,
     UsuariosComponent,
-    ModalUploadComponent,
+    /* ModalUploadComponent, */
     HospitalesComponent,
     MedicosComponent,
     MedicoComponent,
@@ -58,7 +58,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
     PipesModule
   ], 
   exports: [
-    PagesComponent,
+    /* PagesComponent, */
     DashboardComponent,
     ProgressComponent,
     Grafias1Component,

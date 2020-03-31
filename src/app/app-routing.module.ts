@@ -3,13 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 /* Components */
 import { PagesComponent } from './pages/pages.component';
 
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
-import { ProgressComponent } from './pages/progress/progress.component';
-import { Grafias1Component } from './pages/grafias1/grafias1.component';
 import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
 import { RegisterComponent } from './login/register.component';
-import { PAGES_ROUTES } from './pages/pages.routes';
+import { LoginGuardGuard } from './services/guards/login-guard.guard';
 
 
 const routes: Routes = [
@@ -25,11 +22,18 @@ const routes: Routes = [
   }, */
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  {
+    path: '',
+    component: PagesComponent,
+    canActivate: [ LoginGuardGuard ],
+    /*loadChildren:  './pages/pages.module#PagesModule' */
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+  },
   { path: '**', component: NopagefoundComponent }
 ];
 
 @NgModule({
-  imports: [PAGES_ROUTES, RouterModule.forRoot(routes, { useHash: true })],
+  imports: [/* PAGES_ROUTES, */ RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

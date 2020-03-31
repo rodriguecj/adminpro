@@ -6,6 +6,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { PipesModule } from '../pipes/pipes.module';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 
 
@@ -14,7 +15,8 @@ import { PipesModule } from '../pipes/pipes.module';
   declarations: [
     HeaderComponent,
     SidebarComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    ModalUploadComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { PipesModule } from '../pipes/pipes.module';
   exports: [
     HeaderComponent,
     SidebarComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    ModalUploadComponent
   ]
 })
 export class SharedModule { }
